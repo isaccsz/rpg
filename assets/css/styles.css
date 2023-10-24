@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+
+    width: 100vw;
+    height: 100vh;
+
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: linear-gradient(to bottom, #4CAF50, #2196F3);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#gameboard {
+    width: 80vw;
+    height: 80vh;
+    margin: 0 auto;
+    background-color: purple;
+    border: 1px solid white;
+    border-radius: 25px;
+    position: relative;
+}
+
+.wizard {
+    width: 300px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+}
+
+.enemy {
+    width: 300px;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
+
+#wizard_name {
+    background-color: white;
+    width: 100px;
+    text-align: center;
+    border-radius: 25px;
+    position: absolute;
+    bottom: 300px;
+    left: 75px;
+}
+
+#enemy_name {
+    background-color: white;
+    width: 100px;
+    text-align: center;
+    border-radius: 25px;
+    position: absolute;
+    bottom: 300px;
+    right: 100px;
+}
+
+.lifeBar,
+.manaBar {
+    height: 5px;
+    position: absolute;
+    left: 15px;
+}
+
+.lifeBar {
+    background-color: green;
+    bottom: 10px;
+}
+
+.manaBar {
+    background-color: #2196F3;
+    bottom: 5px;
+
+}
+
+.enemyLifeBar {
+    height: 10px;
+    position: absolute;
+    bottom: 5px;
+    right: 55px;
+    background-color: red;
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    font-weight: bold;
+    position: absolute;
+}
+
+.b1 {
+
+    background: linear-gradient(to bottom, #0074c7, #005da5);
+    color: #fff;
+    border: 1px solid #005da5;
+    bottom: 250px;
+    left: 250px;
+
+    &:hover {
+        background: linear-gradient(to bottom, #005da5, #0074c7);
+
+    }
+
+    &:active {
+        background: #00488b;
+    }
+
+}
+
+.b2 {
+
+    background: linear-gradient(to bottom, #ff5733, #c70000);
+    color: #fff;
+    border: 1px solid #c70000;
+    bottom: 150px;
+    left: 300px;
+
+    &:hover {
+        background: linear-gradient(to bottom, #c70000, #ff5733);
+    }
+
+    &:active {
+        background: #a20000;
+    }
+
+}
+
+.b3 {
+
+    background: linear-gradient(to bottom, #ffcc00, #ffff00, #ffcc00);
+    color: #333;
+    border: 1px solid #ffcc00;
+    bottom: 50px;
+    left: 250px;
+
+    &:hover {
+        background: linear-gradient(to bottom, #ffaa00, #ffff00, #ffaa00);
+    }
+
+    &:active {
+        background: #e6b800;
+    }
+}
+
+.b4 {
+
+    background: linear-gradient(to bottom, #00cc00, #00ff00, #00cc00);
+    color: #333;
+    border: 1px solid #00cc00;
+    bottom: 320px;
+    left: 165px;
+
+    &:hover {
+        background: linear-gradient(to bottom, #00aa00, #00ff00, #00aa00);
+    }
+
+    /* Active */
+    &:active {
+        background: #00aa00;
+    }
+}
+
+span {
+
+    position: absolute;
+    right: 130px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    animation: damageAnimation 1s linear;
+
+}
+
+@keyframes damageAnimation {
+    0% {
+        bottom: 0;
+        /* Começa no topo do inimigo */
+        opacity: 1;
+        /* Totalmente visível */
+    }
+
+    70% {
+        bottom: 50px;
+        /* Move para cima */
+        opacity: 0.7;
+        /* Reduz a opacidade */
+    }
+
+    100% {
+        bottom: 100px;
+        /* Move mais para cima */
+        opacity: 0;
+        /* Torna-se completamente transparente */
+    }
+}
+
+.spellCast {
+    width: 300px;
+    position: absolute;
+    right: 10px;
+    animation: magicFall 1.5s linear;
+}
+
+
+.enemy_shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+.time-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #f00;
+    position: relative;
+    top: 25px;
+    animation: timeBarAnimation 5s linear forwards;
+}
+
+#VezDoJogador {
+
+    background-color: white;
+    width: 100px;
+    text-align: center;
+    border-radius: 25px;
+    position: absolute;
+    top: 50px;
+    left: 43%;
+
+}
+
+.cast-heal {
+
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    width: 300px;
+    animation: healAnimation 1s linear;
+
+}
+
+@keyframes healAnimation {
+
+    0% {
+
+        opacity: 0;
+
+    }
+
+    25% {
+
+        opacity: 100%;
+
+    }
+
+    50% {
+
+        opacity: 0%;
+
+    }
+
+    75% {
+
+        opacity: 100%;
+
+    }
+
+    100% {
+
+        opacity: 0%;
+
+    }
+
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(-5px, 0);
+    }
+
+    50% {
+        transform: translate(5px, 0);
+    }
+
+    75% {
+        transform: translate(-5px, 0);
+    }
+
+    100% {
+        transform: translate(5px, 0);
+    }
+}
+
+@keyframes timeBarAnimation {
+    0% {
+        width: 100%;
+        /* Largura inicial (100%) */
+        background-color: #0f0;
+        /* Cor inicial */
+    }
+
+    100% {
+        width: 0;
+        /* Largura final (0%) */
+        background-color: #f00;
+
+        /* Cor final (quando a barra estiver vazia) */
+    }
+}
+
+@keyframes magicFall {
+    0% {
+        top: 0;
+        opacity: 0;
+        /* Começa no topo com opacidade 0 (invisível) */
+    }
+
+    50% {
+        top: calc(70% - 100px);
+        /* Termina na parte inferior do container */
+        opacity: 1;
+        /* Torna-se completamente visível */
+    }
+
+    100% {
+        top: calc(70% - 100px);
+    }
+}
